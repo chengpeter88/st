@@ -59,9 +59,11 @@ def load_model(model_file):
 def run_ml_app():
 	st.subheader("Machine Learning Section")
 	#loaded_model = load_model("models/logistic_regression_model_diabetes_21_oct_2020.pkl")
-	pkl_path = Path(__file__).parent / 'models/logistic_regression_model_diabetes_21_oct_2020.pkl'
-	with open(pkl_path, 'rb') as f:
-		loaded_model = pickle.load(f)
+	#pkl_path = Path(__file__).parent / 'models/logistic_regression_model_diabetes_21_oct_2020.pkl'
+	#with open(pkl_path, 'rb') as f:
+	#	loaded_model = pickle.load(f)
+	model_path = '/Users/heng/Documents/st/diabetes_prediction_ml_app/models/logistic_regression_model_diabetes_21_oct_2020.pkl'
+	loaded_model = joblib.load(open(model_path, "rb"))
 	with st.expander("Attributes Info"):
 		st.markdown(attrib_info,unsafe_allow_html=True)
 
